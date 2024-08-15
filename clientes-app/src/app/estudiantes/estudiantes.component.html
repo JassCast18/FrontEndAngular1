@@ -1,0 +1,39 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Estudiante</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title"> Listado de estudiantes</h5>
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/estudiantes/form']">
+          Crear Estudiante
+        </button>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>CODIGO</th>
+            <th>NOMBRE</th>
+            <th>telefono</th>
+            <th>CORREO</th>
+            <th>DIRECCION</th>
+            <th>EDITAR</th>
+            <th>ELIMINAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let estudiantes of estudiantes">
+            <td>{{ estudiantes.id }}</td>
+            <td>{{ estudiantes.nombre }}</td>
+            <td>{{ estudiantes.telefono }}</td>
+            <td>{{ estudiantes.correo }}</td>
+            <td>{{ estudiantes.direccion }}</td>
+            <td>
+              <button type="button" name="editar" [routerLink]="['/estudiantes/form', estudiantes.id]" class="btn btn-warning btn-sm">editar</button>
+            </td>
+            <td>
+              <button type="button" name="eliminar" (click)='delete(estudiantes)' class="btn btn-danger btn-sm">eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

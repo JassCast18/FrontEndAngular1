@@ -1,0 +1,39 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Movimiento</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de movimientos</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/tb_movimiento/form']">
+        Crear Movimiento
+      </button>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Id_movimiento</th>
+          <th>Id Tipo Movimiento</th>
+          <th>Id Entidad Empresa</th>
+          <th>Codigo Cliente</th>
+          <th>Fecha de Creacion</th>
+          <th>EDITAR</th>
+          <th>ELIMINAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movimiento of movimientos">
+          <td>{{ movimiento.id_movimiento }}</td>
+          <td>{{ movimiento.id_tipo_movimiento }}</td>
+          <td>{{ movimiento.id_entidad_empresa }}</td>
+          <td>{{ movimiento.codigo_cliente }}</td>
+          <td>{{ movimiento.fecha_movimiento }}</td>
+          <td>
+            <button type="button" name="editar" [routerLink]="['/tb_movimiento/form', movimiento.id_movimiento]" class="btn btn-warning btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)="delete(movimiento)" class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
